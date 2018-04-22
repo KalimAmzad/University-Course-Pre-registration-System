@@ -1,0 +1,235 @@
+{% extends "base.html" %}
+{% block content %}
+	
+{% if course %}
+<h1>List for {{course}} and for {{section}} semester</h1>
+<h3>Total student: {{total}}</h3>
+	<table class="table table-hover">
+	    <thead>
+	      <tr   class="table-info">
+	      	
+	        <th>Section</th>
+	        <th>Total Student</th>
+	      </tr>
+	    </thead>
+
+	    <tbody>
+	    	<tr  class="table-info">
+	    		<td>{{section}}AM</td>
+	    		<td>{{total_sec1}}</td>
+	    	</tr>
+	    	<tr  class="table-info">
+	    		<td>{{section}}BM</td>
+	    		<td>{{total_sec2}}</td>
+	    	</tr>
+	    	<tr  class="table-info">
+	    		<td>{{section}}CM</td>
+	    		<td>{{total_sec3}}</td>
+	    	</tr  class="table-info">
+	    	<tr  class="table-info">
+	    		<td>{{section}}DM</td>
+	    		<td>{{total_sec4}}</td>
+	    	</tr>
+
+	    </tbody>
+	</table>
+
+	<h2>{{section}}AM Student List</h2>
+
+	<table class="table table-hover">
+	    <thead>
+	      <tr  class="table-info">
+	      	
+	        <th>Student Id</th>
+	      </tr>
+	    </thead>
+
+	    <tbody>
+	    	{% for student in sec1 %}
+	    		<tr  class="table-info">
+	    			<td>{{student.user}}</td>
+	    		</tr>
+	    	{% endfor %}
+
+	    </tbody>
+	</table>
+
+	<h2>{{section}}BM Student List</h2>
+
+	<table class="table table-hover">
+	    <thead>
+	      <tr  class="table-info">
+	      	
+	        <th>Student Id</th>
+	      </tr>
+	    </thead>
+
+	    <tbody>
+	    	{% for student in sec2 %}
+	    		<tr  class="table-info">
+	    			<td>{{student.user}}</td>
+	    		</tr>
+	    	{% endfor %}
+
+	    </tbody>
+	</table>
+
+	<h2>{{section}}CM Student List</h2>
+
+	<table class="table table-hover">
+	    <thead>
+	      <tr  class="table-info">
+	      	
+	        <th>Student Id</th>
+	      </tr>
+	    </thead>
+
+	    <tbody>
+	    	{% for student in sec3 %}
+	    		<tr  class="table-info">
+	    			<td>{{student.user}}</td>
+	    		</tr>
+	    	{% endfor %}
+
+	    </tbody> 
+	</table>   
+
+	<h2>{{section}}DM Student List</h2>
+
+	<table class="table table-hover">
+	    <thead>
+	      <tr  class="table-info">
+	      	
+	        <th>Student Id</th>
+	      </tr>
+	    </thead>
+
+	    <tbody>
+	    	{% for student in sec4 %}
+	    		<tr  class="table-info">
+	    			<td>{{student.user}}</td>
+	    		</tr>
+	    	{% endfor %}
+
+	    </tbody>
+	</table>
+
+
+{% else %}
+	<h1>List for {{section}} semester</h1>
+	<h3>Total student: {{total}}</h3>
+	<table class="table table-hover">
+	    <thead>
+	      <tr  class="table-info"  class="table-info">
+	      	
+	        <th>Section</th>
+	        <th>Total Student</th>
+	      </tr>
+	    </thead>
+
+	    <tbody>
+	    	<tr  class="table-info">
+	    		<td>{{section}}AM</td>
+	    		<td>{{total_sec1}}</td>
+	    	</tr>
+	    	<tr  class="table-info">
+	    		<td>{{section}}BM</td>
+	    		<td>{{total_sec2}}</td>
+	    	</tr>
+	    	<tr  class="table-info">
+	    		<td>{{section}}CM</td>
+	    		<td>{{total_sec3}}</td>
+	    	</tr>
+	    	<tr  class="table-info">
+	    		<td>{{section}}DM</td>
+	    		<td>{{total_sec4}}</td>
+	    	</tr>
+
+	    </tbody>
+	</table>
+
+	<h2>{{section}}AM Student List</h2>
+
+	<table class="table table-hover">
+	    <thead>
+	      <tr  class="table-info">
+	      	
+	        <th>Student Id</th>
+	      </tr>
+	    </thead>
+
+	    <tbody>
+	    	{% for student in sec1 %}
+	    		<tr  class="table-info">
+	    			<td>{{student.user}}</td>
+	    		</tr>
+	    	{% endfor %}
+
+	    </tbody>
+	</table>
+
+	<h2>{{section}}BM Student List</h2>
+
+	<table class="table table-hover">
+	    <thead>
+	      <tr  class="table-info">
+	      	
+	        <th>Student Id</th>
+	      </tr>
+	    </thead>
+
+	    <tbody>
+	    	{% for student in sec2 %}
+	    		<tr  class="table-info">
+	    			<td>{{student.user}}</td>
+	    		</tr>
+	    	{% endfor %}
+
+	    </tbody>
+	</table>
+
+	<h2>{{section}}CM Student List</h2>
+
+	<table class="table table-hover">
+	    <thead>
+	      <tr  class="table-info">
+	      	
+	        <th>Student Id</th>
+	      </tr>
+	    </thead>
+
+	    <tbody>
+	    	{% for student in sec3 %}
+	    		<tr  class="table-info">
+	    			<td>{{student.user}}</td>
+	    		</tr>
+	    	{% endfor %}
+
+	    </tbody> 
+	</table>   
+
+	<h2>{{section}}DM Student List</h2>
+
+	<table class="table table-hover">
+	    <thead>
+	      <tr  class="table-info">
+	      	
+	        <th>Student Id</th>
+	      </tr>
+	    </thead>
+
+	    <tbody>
+	    	{% for student in sec4 %}
+	    		<tr  class="table-info">
+	    			<td>{{student.user}}</td>
+	    		</tr>
+	    	{% endfor %}
+
+	    </tbody>
+	</table>
+
+
+{% endif %}
+
+
+{% endblock %}

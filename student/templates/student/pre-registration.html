@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+<h2>Pre Registration </h2>
+	<form method="POST">
+		{% csrf_token %}
+
+
+	    	{% if static %}
+	    	<table class="table table-hover">
+
+		    <thead>
+		      <tr  class="table-info">
+		        <th>Course Code</th>
+		        <th>Course Name</th>
+		        <th>Credits</th>
+		        <th>Semester</th>
+		        <!-- <th>Section</th> -->
+		        <th>Taken</th>
+		      </tr>
+		    </thead>
+
+		    <tbody>
+			    {% for course in courses %}
+				    <tr  class="table-info">
+				        <td>{{course.course_code}}</td>
+				        <td>{{course.course_title}}</td>
+				        <td>{{course.credit_hour}}</td>
+				        <td>1</td>
+						<!-- <td>{{section}}</td> -->
+						
+						<td>
+						 
+						  	<div class="form-group">
+						  		
+							    <label class="course">
+							      <input type="checkbox" name="course" value="{{course.course_code}}">
+							    </label>
+
+						    </div>
+						  
+						</td>
+				    </tr>
+				{% endfor %}
+
+				{% for course in courses2nd %}
+				    <tr  class="table-info">
+				        <td>{{course.course_code}}</td>
+				        <td>{{course.course_title}}</td>
+				        <td>{{course.credit_hour}}</td>
+				        <td>2</td>
+				        <!-- <td>{{section2}}</td> -->
+				        
+				        <td>
+						 
+						  	<div class="form-group">
+						  		
+							    <label class="course">
+							      <input type="checkbox" name="course" value="{{course.course_code}}">
+							    </label>
+
+						    </div>
+						  
+						</td>
+
+				    </tr>
+				{% endfor %}
+			</tbody>
+			</table>
+
+			<h3>Advanced Courses</h3>
+			<table class="table table-hover">
+
+			<thead>
+		      <tr  class="table-info">
+		        <th>Course Code</th>
+		        <th>Course Name</th>
+		        <th>Credits</th>
+		        <th>Semester</th>
+		        <th>Prefer Section</th>
+		        <th>Taken</th>
+		      </tr>
+		    </thead>
+
+		    <tbody>
+
+	      		{% for key,values in extra_course_to_be_load.items %}
+	      			<tr  class="table-info">
+	      				{% for val in values %}
+	      				<td>{{ val }}</td>
+	      				{% endfor %}
+	      				<td><input type="text" name="prefer_section" placeholder="1AM"></td>
+
+	      				<td>
+						 
+						  	<div class="form-group">
+						  		
+							    <label class="course">
+							      <input type="checkbox" name="course" value="{{key}}">
+							    </label>
+
+						    </div>
+						  
+						</td>
+
+	      			</tr>
+	      			
+	      		{% endfor %}
+
+	    	</tbody>
+	    </table>
+
+	      	{% else %}
+				
+				<!-- context = {'course_to_be_load':course_to_be_load, 'total':range(count), 
+				'section':currect_section,'section_no':currect_section[0], 'static':False,'sex':student.sex} -->
+			<h3>Regular Courses</h3>
+			<table class="table table-hover">
+
+			<thead>
+		      <tr  class="table-info">
+		        <th>Course Code</th>
+		        <th>Course Name</th>
+		        <th>Credits</th>
+		        <th>Semester</th>
+		        <!-- <th>Section</th> -->
+		        <th>Taken</th>
+		      </tr>
+		    </thead>
+
+		    <tbody>
+
+	      		{% for key,values in regular_course_to_be_load.items %}
+	      			<tr  class="table-info">
+	      				{% for val in values %}
+	      				<td>{{ val }}</td>
+	      				{% endfor %}
+	      				<!-- <td>{{section}}</td> -->
+
+	      				<td>
+						 
+						  	<div class="form-group">
+						  		
+							    <label class="course">
+							      <input type="checkbox" name="course" value="{{key}}">
+							    </label>
+
+						    </div>
+						  
+						</td>
+
+	      			</tr>
+	      			
+	      		{% endfor %}
+	      		
+
+	    	</tbody>
+	    </table>
+
+	    <h3>Retaken/Advanced Courses</h3>
+			<table class="table table-hover">
+
+			<thead>
+		      <tr  class="table-info">
+		        <th>Course Code</th>
+		        <th>Course Name</th>
+		        <th>Credits</th>
+		        <th>Semester</th>
+		        <th>Prefer Section</th>
+		        <th>Taken</th>
+		      </tr>
+		    </thead>
+
+		    <tbody>
+
+	      		{% for key,values in extra_course_to_be_load.items %}
+	      			<tr  class="table-info">
+	      				{% for val in values %}
+	      				<td>{{ val }}</td>
+	      				{% endfor %}
+	      				<td><input type="text" name="prefer_section" placeholder="1AM"></td>
+
+	      				<td>
+						 
+						  	<div class="form-group">
+						  		
+							    <label class="course">
+							      <input type="checkbox" name="course" value="{{key}}">
+							    </label>
+
+						    </div>
+						  
+						</td>
+
+	      			</tr>
+	      			
+	      		{% endfor %}
+	      		
+	      	{% endif %}
+
+	    	</tbody>
+	    </table>
+
+	<div class="form-group">
+		<button class="btn btn-primary " name="submit" type="submit">Submit</button>
+	</div>
+
+	</form>
+
+</div>
+
+
+{% endblock %}

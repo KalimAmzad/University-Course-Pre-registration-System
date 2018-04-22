@@ -275,3 +275,8 @@ img.user-detail {
     font-style:italic;
     color:#ccc;
 }
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}

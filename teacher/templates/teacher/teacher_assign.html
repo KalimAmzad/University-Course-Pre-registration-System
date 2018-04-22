@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<table class="table table-hover">
+	    <thead>
+	      <tr  class="table-info">
+	        <th>Teacher</th>
+	        <th>Course Code</th>
+	        <th>Section</th>
+	      </tr>
+	    </thead>
+
+	    <form method="POST">
+		{% csrf_token %}
+	    <tbody>
+			    	{% for iter in iteration %}
+				      <tr class="table-info">
+				      	<td>
+				        	<input type="text" name="teacher" placeholder="XYZ">
+				        </td>
+				        <td>
+				        	<input type="text" name="course" placeholder="CSE-1101">
+				        </td>
+				        <td>
+				        	<input type="text" name="section" placeholder="1AM">
+				        </td>
+				      </tr>
+				    {% endfor %}
+				    
+		</tbody>
+	</table>
+	<div class="form-group">
+		<button class="btn btn-primary " name="submit" type="submit">Submit</button>
+	</div>
+</form>
+
+{% endblock %}

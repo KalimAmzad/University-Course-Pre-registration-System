@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Merging Section</h1>
+
+
+ <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table table-hover">
+    	
+    
+
+    <div class="form-group">
+
+    <label for="per_section">Student Per Section</label>
+    <input id="per_section" type="text" name="per_section" placeholder="25" ><br>
+    </div>
+
+    <div class="form-group">
+
+    <label for="section">Merge Semester</label>
+    <input id="section" type="text" name="section" placeholder="1"><br><br>
+     </div>
+
+ 	</table>
+ 	<button type="submit" class="btn btn-primary">Merge</button><br>
+ </form>
+ {% endblock %}

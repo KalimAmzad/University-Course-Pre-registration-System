@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Result Upload</h2>
+
+<!-- <form method="POST" class="form-horizontal"> 
+		{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Save</button>
+</form> -->
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table table-hover">
+    	
+    <div class="form-group">
+    	
+  	<label for="course">Course Code</label>
+    <input id="course" type="text" name="course"><br>
+     </div>
+
+     <div class="form-group">
+
+    <label for="section">Section</label>
+    <input id="section" type="text" name="section"><br>
+    </div>
+
+    <div class="form-group">
+    <label for="result">Result</label>
+    <input id="result" type="file" name="result"><br>
+    </div>
+
+    </table>
+
+    <div class="form-group">
+    <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+ </form>
+
+{% endblock %}

@@ -3,23 +3,49 @@
 <html>
 <head>
     <title>{% block title %}{% endblock %}</title>
-    <link href="{% static "css/base.css" %}" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 </head>
 <body>
     <div id="header">
         <span class="logo">Home</span>
-        {% if request.user.is_authenticated %}
+
+        {% if request.user.is_superuser %}
         <ul class="menu">
-            <li {% if section == "home" %}class="selected"{% endif %}><a href="{% url "home" %}">My dashboard</a></li>
+            <li {% if section == "home" %}class="selected"{% endif %}><a href="{% url 'home' %}">Profile</a></li>
+            <li><a href="{% url 'applying_courses' %}">Applying Course List</a></li>
+            <li><a href="{% url 'check_section' %}">Section Check</a></li>
+            <li><a href="{% url 'merge_section' %}">Merging Section</a></li>
+            <li><a href="{% url 'teacher_assign' %}">Assigning Teacher</a></li>
             
         </ul>
+
+        {% elif request.user.is_active and request.user.is_staff %}
+        <ul class="menu">
+            <li {% if section == "home" %}class="selected"{% endif %}><a href="{% url 'home' %}">Profile</a></li>
+            <li><a href="{% url 'upload_result' %}">Upload Result</a></li>
+            
+        </ul>
+
+        {% elif request.user.is_authenticated %}
+        <ul class="menu">
+            <li {% if section == "home" %}class="selected"{% endif %}><a href="{% url 'home' %}">Profile</a></li>
+            <li><a href="{% url 'pre_registration' %}">Pre Registration</a></li>
+            <li><a href="{% url 'taken_courses' %}">Taken Courses</a></li>
+            
+        </ul>
+    
         {% endif %}
+
+        
+
+
         
         <span class="user">
         {% if request.user.is_authenticated %}
-            Hello {{ request.user.first_name }}, <a href="{% url "logout" %}">Logout</a>
+            Hello {{ request.user.first_name }}, <a href="{% url 'logout' %}">Logout</a>
         {% else %}
-            <a href="{% url "login" %}">Log-in</a>
+            <a href="{% url 'login' %}">Log-in</a>
         {% endif %}
         </span>
     </div>
@@ -29,5 +55,6 @@
         {% block content %}
         {% endblock %}
     </div>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>

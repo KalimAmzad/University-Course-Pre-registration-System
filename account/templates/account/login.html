@@ -8,7 +8,7 @@ Log-in
 <h1>Log-in</h1>
 <p>Please, use the following form to log-in:</p>
 
-<form action="." method="POST">
+<form action="/home" method="POST">
 	{{form.as_p}}
 	{% csrf_token %}
 	<p><input type="submit" name="" value="Log-in"></p>

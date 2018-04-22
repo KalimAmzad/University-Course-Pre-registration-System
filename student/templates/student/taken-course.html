@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+	
+
+<h2>Taken Courses</h2>
+	<table class="table table-hover">
+	    <thead>
+	      <tr  class="table-info">
+	        <th>Course Code</th>
+	        <th>Course Name</th>
+	        <th>Semester</th>
+	        <th>Credits</th>
+
+	      </tr>
+	    </thead>
+	    <tbody>
+			    	{% for course in taken_courses %}
+				      <tr  class="table-info">
+				        <td>{{course.course_code}}</td>
+				        <td>{{course.course_code.course_title}}</td>
+				        <td>{{course.course_code.semester}}</td>
+				        <td>{{course.course_code.credit_hour}}</td>
+				      </tr>
+				    {% endfor %}
+		</tbody>
+
+	</table>
+
+<h2>Retaken/ Advanced Courses: Wait for Admin Approval</h2>
+	<table class="table table-hover">
+	    <thead>
+	      <tr  class="table-info">
+	        <th>Course Code</th>
+	        <th>Course Name</th>
+	        <th>Semester</th>
+	        <th>Credits</th>
+	        <th>Prefered Section</th>
+
+	      </tr>
+	    </thead>
+	    <tbody>
+			    	{% for course in retaken_courses %}
+				      <tr  class="table-info">
+				        <td>{{course.course_code}}</td>
+				        <td>{{course.course_code.course_title}}</td>
+				        <td>{{course.course_code.semester}}</td>
+				        <td>{{course.course_code.credit_hour}}</td>
+				        <td>{{course.section}}</td>
+				      </tr>
+				    {% endfor %}
+		</tbody>
+
+	</table>
+</div>
+
+{% endblock %}

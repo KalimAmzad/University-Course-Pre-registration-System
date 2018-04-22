@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Section Student Check</h1>
+
+<!-- <form method="POST" class="form-horizontal"> 
+		{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Save</button>
+</form> -->
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table table-hover">
+        
+    
+    <div class="form-group">
+
+  	<label for="course">Course Code</label>
+    <input id="course" type="text" name="course" placeholder="CSE-1101" ><br>
+    </div>
+
+    <div class="form-group">
+
+    <label for="semester">Semester</label>
+    <input id="semester" type="text" name="semester" placeholder="1"><br><br>
+     </div>
+    </table>
+
+    <button type="submit" class="btn btn-primary">Search</button><br>
+ </form>
+
+<br><br>
+
+
+{% endblock %}
